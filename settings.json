@@ -1,0 +1,5 @@
+{
+    "name": "host-manager",
+    "rest": true,
+    "cli": false
+}
