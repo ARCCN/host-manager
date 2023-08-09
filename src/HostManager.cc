@@ -157,6 +157,9 @@ void HostManager::init(Loader *loader, const Config &config)
 void HostManager::onSwitchDiscovered(SwitchPtr dp)
 {
     QObject::connect(dp.get(), &Switch::portAdded, this, &HostManager::newPort);
+    for (const auto& port : dp->ports()) {
+        newPort(port);
+    }
 }
 
 void HostManager::onSwitchDown(SwitchPtr dp)
