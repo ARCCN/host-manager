@@ -133,9 +133,9 @@ void HostManager::init(Loader *loader, const Config &config)
                         m_switch_manager->switch_(connection->dpid());
                     addHost(sw, host_ip, host_mac, in_port);
 
-                    LOG(INFO) << "Host discovered. MAC: " << host_mac
-                              << ", IP: " << host_ip
-                              << ", Switch ID: " << sw->dpid() << ", port: " << in_port;
+                    LOG_INFO("Host discovered. MAC: {}, IP: {}, Switch ID: {}, port: {}",
+                              host_mac, host_ip,
+                              sw->dpid(), in_port);
                 } else {
                     Host* h = getHost(host_mac);
                     if (host_ip != convert("0.0.0.0").first) {
